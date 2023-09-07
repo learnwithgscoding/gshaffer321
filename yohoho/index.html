@@ -44,18 +44,23 @@
 
 
     <!-- GOOGLE SIGNIN -->
-    <script src="https://apis.google.com/js/platform.js" async="" defer="" onload="gapi.load('auth2');"></script>
-    <meta name="google-signin-client_id" content="1065899355530-mv0tefre9ub52eo019ven5iiu5jlmg81.apps.googleusercontent.com">
-    <script type="text/javascript">
-        function onGoogleSignIn(u) {
-            if (typeof yohoho === "undefined") {
-                setTimeout(function() {
-                    onGoogleSignIn(u);
-                }, 100);
-            } else
-                yohoho.onGoogleSignIn(u);
-        }
+    <div id="g_id_onload"
+     data-client_id="1065899355530-mv0tefre9ub52eo019ven5iiu5jlmg81.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-login_uri="https://bwigal26888.github.io/Protongames/yohoho/index.html"
+     data-close_on_tap_outside="false"
+     data-itp_support="true">
+</div>
 
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="rectangular"
+     data-theme="filled_blue"
+     data-text="signin_with"
+     data-size="large"
+     data-logo_alignment="left">
+</div>
         function onFacebookLogin() {
             if (typeof yohoho === "undefined") {
                 setTimeout(function() {
