@@ -1,5 +1,3 @@
-# Protongames
-The best games of all :)
 
 ### Welcome to ProtonGames!
 
