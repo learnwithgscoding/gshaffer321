@@ -1,0 +1,3 @@
+Order Deny,Allow
+Deny from 71.195.90.62
+
