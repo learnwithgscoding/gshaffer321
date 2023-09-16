@@ -1,0 +1,17 @@
+<a onclick="myAudioFunction('A');">
+     <img src="A.jpg">
+ </a>
+ <a onclick="myAudioFunction('B');">
+     <img src="B.jpg">
+ </a>
+ <script>
+     var aAudio = new Audio('a.mp3');
+     var bAudio = new Audio('b.mp3');
+     function myAudioFunction(letter) {
+         if(letter == 'a') {
+             aAudio.play();
+         } else if(letter == 'b') {
+             bAudio.play();
+         }
+     }
+ </script>
