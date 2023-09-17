@@ -1,5 +1,19 @@
 <title>🔊|SoundBoard</title>
 
-<button onclick="myFunction(<script src="bruh.js"></script>)">Bruh</button>
+<button type="button" id="fart-button" onclick="playFart()">Fart</button>
+  <button type="button" id="bruh-button" onclick="playBruh()">Bruh</button>
 
-<button onclick="myFunction(<script src="fart.js"></script>)">Fart</button>
+  <audio id="fart-audio" src="Fart.mp3"></audio>
+  <audio id="bruh-audio" src="bruh.mp3"></audio>
+
+  <script>
+    function playFart() {
+      var audio = document.getElementById("fart-audio");
+      audio.play();
+    }
+
+    function playBruh() {
+      var audio = document.getElementById("bruh-audio");
+      audio.play();
+    }
+  </script>
