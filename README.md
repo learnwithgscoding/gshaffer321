@@ -9,6 +9,6 @@
 ## Patch Notes for 9/17/23
 -----------------------------
 ### Games |
-### Changes | Added Css to index.html button
+### Changes | Added CSS
 ### Patches | NoN
 ### Patch Details | NoN
