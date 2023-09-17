@@ -1,11 +1,11 @@
 .button {
   background-color: blue;
-  color: white;
+  color: purple;
   border: 10px solid blue;
 }
 
 .button:hover {
-  background-color: darkblue;
+  background-color: yellow;
 }
 
 
