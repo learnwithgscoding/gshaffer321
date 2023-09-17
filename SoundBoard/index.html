@@ -3,10 +3,12 @@
 <button type="button" id="fart-button" onclick="playFart()">Fart</button>
   <button type="button" id="bruh-button" onclick="playBruh()">Bruh</button>
   <button type="button" id="oof-button" onclick="playOof()">Roblox Oof Sound</button>
+  <button type="button" id="discord-ping" onclick="playPing()">Discord Ping</button>
 
   <audio id="fart-audio" src="Fart.mp3"></audio>
   <audio id="bruh-audio" src="bruh.mp3"></audio>
   <audio id="oof-audio" src="oof.mp3"></audio>
+  <audio id="discord-audio" src="DiscordPing.mp3"></audio>
  
 <script>
     function playFart() {
@@ -21,6 +23,11 @@
 
     function playOof() {
       var audio = document.getElementById("oof-audio");
+      audio.play();
+    }
+
+  function playPing() {
+      var audio = document.getElementById("discord-ping");
       audio.play();
     }
   </script>
