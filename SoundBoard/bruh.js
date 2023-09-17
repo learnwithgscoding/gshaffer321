@@ -1,4 +1,8 @@
-function sound(){
-     var snd = new Audio('bruh.mp3')//wav is also supported
-     snd.play()//plays the sound
-}
+const audio = new Audio("bruh.mp3");
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    audio.play();
+  });
+});
