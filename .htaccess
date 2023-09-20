@@ -1,4 +1,0 @@
-RewriteEngine on
-
-RewriteCond %{REQUEST_URI} !^/maintenance/
-RewriteRule ^(.*)$ /maintenance/ [R=307,L]
