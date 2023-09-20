@@ -4,13 +4,12 @@
   <button type="button" id="bruh-button" onclick="playBruh()">Bruh</button>
   <button type="button" id="oof-button" onclick="playOof()">Roblox Oof Sound</button>
   <button type="button" id="discord-ping" onclick="playPing()">Discord Ping</button>
-  <button type="button" id="fornite-defult" onclick="playFortnite()">Fortnite Default Dance (Boosted) (⚠️TURN AUDIO DOWN PLS⚠️)</button>
+  
 
   <audio id="fart-audio" src="Fart.mp3"></audio>
   <audio id="bruh-audio" src="bruh.mp3"></audio>
   <audio id="oof-audio" src="oof.mp3"></audio>
   <audio id="discord-audio" src="DiscordPing.mp3"></audio>
-  <audio id="fornite-boosted" src="Fortnite dance default Boosted.mp3">
 </audio>
  
 <script>
@@ -31,11 +30,6 @@
 
   function playPing() {
       var audio = document.getElementById("discord-audio");
-      audio.play();
-    }
-
-  function playFortnite() {
-      var audio = document.getElementById("fortnite-boosted");
       audio.play();
     }
   </script>
