@@ -1,7 +1,20 @@
 button {
   background-color: purple;
   color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+
+  /* Make the button bigger */
+  width: 200px;
+  height: 50px;
+
+  /* Space out the button */
+  margin-top: 20px;
 }
-
-
 
