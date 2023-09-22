@@ -1,11 +1,7 @@
-.button {
-  background-color: blue;
-  color: violet;
-  border: 10px solid blue;
+button {
+  background-color: purple;
+  color: white;
 }
 
-.button:hover {
-  background-color: yellow;
-}
 
 
