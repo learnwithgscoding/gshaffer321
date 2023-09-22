@@ -7,14 +7,7 @@
   padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
-}
 
-.button:hover {
-  background-color: yellow;
-}
-
-.button-spaced {
+  /* Add a 20px margin to the top of the button */
   margin-top: 20px;
 }
-
-
