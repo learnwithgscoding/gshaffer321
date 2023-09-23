@@ -1,13 +1,24 @@
+/* Make the button blue */
 .button {
-  background-color: purple;
+  background-color: blue;
   color: white;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
   padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+}
 
-  /* Add a 20px margin to the top of the button */
-  margin-top: 20px;
+/* Make the button purple when hovered */
+.button:hover {
+  background-color: purple;
+}
+
+/* Space the text and the button out */
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-container .button {
+  margin-left: 10px;
 }
