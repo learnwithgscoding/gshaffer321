@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sign Up</title>
+ <title>Sign Up</title>
 </head>
 <body>
-  <h1>Sign Up</h1>
-  <input type="email" id="email" placeholder="Email">
-  <input type="password" id="password" placeholder="Password">
-  <button type="button" onclick="signup()">Sign Up!</button>
+ <h1>Sign Up</h1>
+ <input type="email" id="email" placeholder="Email">
+ <input type="password" id="password" placeholder="Password">
+ <button type="button" onclick="signup()">Sign Up!</button>
 
-  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"></script>
 
-  <script>
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+ <script>
+   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCi2nCSIgG06MN5WoVPiCf0uWQWXh6KPJw",
   authDomain: "signup-7856c.firebaseapp.com",
@@ -25,30 +25,46 @@ const firebaseConfig = {
   measurementId: "G-B1Q51TBM2R"
 };
 
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-    // Create a new user account with Firebase Auth
-    function signup() {
-      // Get the email and password from the sign-up form
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
+  // Create a new user account with Firebase Auth
+  function signup() {
+   // Get the email and password from the sign-up form
+   const email = document.getElementById('email').value;
+   const password = document.getElementById('password').value;
 
-      // Create a new user account with Firebase Auth
-      firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          // The user account has been created successfully
-          // You can now save the user's email and password to Firebase
+   // Create a new user account with Firebase Auth
+   firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+     // The user account has been created successfully
+     // You can now save the user's email and password to Firebase
 
-          // Alert the user that the sign-up was successful
-          alert('Successfully signed up!');
-        })
-        .catch((error) => {
-          // Handle error
-          alert('Sign up was unsuccessful.');
-        });
-    }
-  </script>
+     // **Add the following code to save the email and password to Firebase**
+
+     // Create a reference to the database
+     const databaseRef = firebase.database();
+
+     // Create a reference to the users collection
+     const usersRef = databaseRef.ref('users');
+
+     // Create a new document in the users collection for the new user
+     const userRef = usersRef.push();
+
+     // Set the user's email and password in the document
+     userRef.set({
+       email: email,
+       password: password
+     });
+
+     // Alert the user that the sign-up was successful
+     alert('Successfully signed up!');
+    })
+    .catch((error) => {
+     // Handle error
+     alert('Sign up was unsuccessful.');
+    });
+  }
+</script>
 </body>
-</html>
-
+</html
