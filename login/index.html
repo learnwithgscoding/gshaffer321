@@ -18,7 +18,7 @@
   measurementId: "G-B1Q51TBM2R"
 };);
 
-    // Get the auth object
+  // Get the auth object
     var auth = firebase.auth();
 
     // Sign in with email and password
@@ -29,13 +29,11 @@
       auth.signInWithEmailAndPassword(email, password).then(function(user) {
         <script> 
           alert("LoggedIn")
-                                                            </script>
-        // User is signed in
+              </script>
       }).catch(function(error) {
        <script>
          alert("Login Isnt Correct")
            </script>
-  // Handle error
       });
     }
   </script>
