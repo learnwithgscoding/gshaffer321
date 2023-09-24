@@ -30,23 +30,28 @@ function sendMessage() {
  var messagesList = document.getElementById('messages');
  messagesList.innerHTML = '';
  for (var i = 0; i < messages.length; i++) {
-  var messageElement = document.createElement('li');
-  messageElement.textContent = messages[i];
-  messagesList.appendChild(messageElement);
- }
+   var messageElement = document.createElement('li');
+   messageElement.textContent = messages[i];
+   messagesList.appendChild(messageElement);
+  }
 }
 
 // Add code to display the messages from other people
 function displayOtherMessages() {
  var messagesList = document.getElementById('messages');
  for (var i = 0; i < otherMessages.length; i++) {
-  var messageElement = document.createElement('li');
-  // Add the username to the beginning of the message
-  messageElement.textContent = otherMessages[i].username + ': ' + otherMessages[i].message;
-  messagesList.appendChild(messageElement);
- }
+   var messageElement = document.createElement('li');
+   // Add the username to the beginning of the message
+   messageElement.textContent = otherMessages[i].username + ': ' + otherMessages[i].message; 
+   messagesList.appendChild(messageElement);
+  }
 }
+
+// Call the displayOtherMessages() function when the chatroom page is loaded
+window.onload = function() {
+ displayOtherMessages();
+};
+  alert("⚠️ Swearing or doing inappropriate things will get you banned! ⚠️")
 </script>
 </body>
 </html>
-
