@@ -8,9 +8,9 @@
 <h1>Chatroom</h1>
 <link rel="stylesheet" href="chat.css">
 <form action="#">
-  <input type="text" id="username" placeholder="Enter your username">
-  <input type="text" id="message" placeholder="Enter your message">
-  <button type="submit" onclick="sendMessage()">Send</button>
+ <input type="text" id="username" placeholder="Enter your username">
+ <input type="text" id="message" placeholder="Enter your message">
+ <button type="submit" onclick="sendMessage()">Send</button>
 </form>
 
 <ul id="messages">
@@ -20,20 +20,33 @@
 <script>
 var messages = [];
 var username = '';
+var otherMessages = [];
 
 function sendMessage() {
-  var message = document.getElementById('message').value;
-  messages.push(username + ': ' + message);
+ var message = document.getElementById('message').value;
+ messages.push(username + ': ' + message);
 
-  // Update the chatroom with the new message
-  var messagesList = document.getElementById('messages');
-  messagesList.innerHTML = '';
-  for (var i = 0; i < messages.length; i++) {
-    var messageElement = document.createElement('li');
-    messageElement.textContent = messages[i];
-    messagesList.appendChild(messageElement);
-  }
+ // Update the chatroom with the new message
+ var messagesList = document.getElementById('messages');
+ messagesList.innerHTML = '';
+ for (var i = 0; i < messages.length; i++) {
+  var messageElement = document.createElement('li');
+  messageElement.textContent = messages[i];
+  messagesList.appendChild(messageElement);
+ }
+}
+
+// Add code to display the messages from other people
+function displayOtherMessages() {
+ var messagesList = document.getElementById('messages');
+ for (var i = 0; i < otherMessages.length; i++) {
+  var messageElement = document.createElement('li');
+  // Add the username to the beginning of the message
+  messageElement.textContent = otherMessages[i].username + ': ' + otherMessages[i].message;
+  messagesList.appendChild(messageElement);
+ }
 }
 </script>
 </body>
 </html>
+
