@@ -14,19 +14,13 @@
     // Check if the user is logged in
     if (user) {
       // The user is logged in
-      // Display a loading indicator
-      document.getElementById('loading').style.display = 'block';
-
-      // Redirect the user to the Tiger ID page
-      setTimeout(function() {
-        location.href = 'https://tiger-id.bearcatplaysyt.repl.co';
-      }, 1000);
+    } else {
+      // The user is not logged in
+      document.getElementById('message').innerHTML = 'User is not logged in.';
     }
   </script>
 </head>
 <body>
-  <div id="loading">
-    Loading...
-  </div>
+  <h1 id="message"></h1>
 </body>
 </html>
