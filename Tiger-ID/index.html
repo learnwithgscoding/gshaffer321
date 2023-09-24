@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Check Login Status</title>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/init.js"></script>
-
+  <title>Check if Logged In</title>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
   <script>
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCi2nCSIgG06MN5WoVPiCf0uWQWXh6KPJw",
+  authDomain: "signup-7856c.firebaseapp.com",
+  databaseURL: "https://signup-7856c-default-rtdb.firebaseio.com",
+  projectId: "signup-7856c",
+  storageBucket: "signup-7856c.appspot.com",
+  messagingSenderId: "257328329466",
+  appId: "1:257328329466:web:6b8b340084ad8deec14f43",
+  measurementId: "G-B1Q51TBM2R"
+};
+
     // Get the current user
     const user = firebase.auth().currentUser;
 
     // Check if the user is logged in
     if (user) {
-      // The user is logged in
+      // Redirect to the home page
+      window.location.href = "https://tiger-id.bearcatplaysyt.repl.co/";
     } else {
-      // The user is not logged in
-      document.getElementById('message').innerHTML = 'User is not logged in.';
+      // Redirect to the login page
+      window.location.href = "https://github.com/Bwigal26888/Protongames/blob/main/LS/login.html";
     }
   </script>
 </head>
 <body>
-  <h1 id="message"></h1>
+  <h1>User is not logged in.</h1>
 </body>
 </html>
