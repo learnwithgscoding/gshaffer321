@@ -1,19 +1,19 @@
+/* Create a gradient background */
 body {
-  font-family: sans-serif;
+  background: linear-gradient(to right, red, blue);
 }
 
-#chat-window {
-  width: 500px;
-  height: 300px;
-  border: 1px solid black;
-  overflow-y: auto;
+/* Add a box shadow to an element */
+div {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-#message-input {
-  width: 400px;
-  margin-bottom: 10px;
+/* Add a 3D transform to an element */
+img {
+  transform: perspective(500px);
+  transition: transform 0.5s;
 }
 
-#send-button {
-  width: 100px;
+img:hover {
+  transform: perspective(500px) rotateY(10deg);
 }
