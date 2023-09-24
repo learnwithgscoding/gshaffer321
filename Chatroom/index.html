@@ -14,43 +14,52 @@
 </div>
 
 <script>
-// Create an empty array to store the messages
+// Create a global variable to store the messages
 var messages = [];
 
 // Define a function to send a message
 function sendMessage() {
-  // Get the username and message from the input fields
-  var username = document.getElementById('username').value;
-  var message = document.getElementById('message').value;
+ // Get the username and message from the input fields
+ var username = document.getElementById('username').value;
+ var message = document.getElementById('message').value;
 
-  // Add the message to the messages array
-  messages.push(username + ': ' + message);
+ // Add the message to the messages array
+ messages.push(username + ': ' + message);
 
-  // Clear the message input field
-  document.getElementById('message').value = '';
+ // Clear the message input field
+ document.getElementById('message').value = '';
 
-  // Update the chatroom with the new message
-  updateChatroom();
+ // Update the chatroom with the new message
+ updateChatroom();
 }
 
 // Define a function to update the chatroom
 function updateChatroom() {
-  // Get the messages list element
-  var messagesList = document.getElementById('messages');
+ // Get the messages list element
+ var messagesList = document.getElementById('messages');
 
-  // Clear the messages list element
-  messagesList.innerHTML = '';
+ // Clear the messages list element
+ messagesList.innerHTML = '';
 
-  // Add each message in the messages array to the messages list element
-  for (var i = 0; i < messages.length; i++) {
-    var messageElement = document.createElement('li');
-    messageElement.textContent = messages[i];
-    messagesList.appendChild(messageElement);
-  }
+ // Add each message in the messages array to the messages list element
+ for (var i = 0; i < messages.length; i++) {
+  var messageElement = document.createElement('li');
+  messageElement.textContent = messages[i];
+  messagesList.appendChild(messageElement);
+ }
 }
 
-// Update the chatroom when the page loads
-updateChatroom();
+// Define a function to refresh the chatroom
+function refreshChatroom() {
+ // Update the chatroom with the latest messages
+ updateChatroom();
+
+ // Schedule the next refresh
+ setTimeout(refreshChatroom, 1000);
+}
+
+// Start the refresh function
+refreshChatroom();
 </script>
 </body>
 </html>
