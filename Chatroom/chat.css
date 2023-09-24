@@ -1,0 +1,19 @@
+body {
+  font-family: sans-serif;
+}
+
+#chat-window {
+  width: 500px;
+  height: 300px;
+  border: 1px solid black;
+  overflow-y: auto;
+}
+
+#message-input {
+  width: 400px;
+  margin-bottom: 10px;
+}
+
+#send-button {
+  width: 100px;
+}
