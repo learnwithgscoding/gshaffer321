@@ -42,16 +42,20 @@ function displayOtherMessages() {
  for (var i = 0; i < otherMessages.length; i++) {
    var messageElement = document.createElement('li');
    // Add the username to the beginning of the message
-   messageElement.textContent = otherMessages[i].username + ': ' + otherMessages[i].message; 
+   messageElement.textContent = otherMessages[i].username + ': ' + otherMessages[i].message;
    messagesList.appendChild(messageElement);
   }
 }
 
+// Refresh the chatroom every 1 second
+setInterval(function() {
+  displayOtherMessages();
+}, 1000);
+
 // Call the displayOtherMessages() function when the chatroom page is loaded
 window.onload = function() {
- displayOtherMessages();
+  displayOtherMessages();
 };
-  alert("⚠️ Swearing or doing inappropriate things will get you banned! ⚠️")
 </script>
 </body>
 </html>
