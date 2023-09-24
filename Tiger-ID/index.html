@@ -14,11 +14,19 @@
     // Check if the user is logged in
     if (user) {
       // The user is logged in
+      // Display a loading indicator
+      document.getElementById('loading').style.display = 'block';
+
       // Redirect the user to the Tiger ID page
-      location.href = 'https://tiger-id.bearcatplaysyt.repl.co';
+      setTimeout(function() {
+        location.href = 'https://tiger-id.bearcatplaysyt.repl.co';
+      }, 1000);
     }
   </script>
 </head>
 <body>
+  <div id="loading">
+    Loading...
+  </div>
 </body>
 </html>
