@@ -34,6 +34,9 @@ function sendMessage() {
 
   // Update the chatroom with the new message
   updateChatroom();
+
+  // Broadcast the message to all other users
+  broadcastMessage();
 }
 
 // Define a function to update the chatroom
@@ -50,6 +53,15 @@ function updateChatroom() {
     messageElement.innerHTML = messages[i].username + ': ' + messages[i].message;
     messagesList.appendChild(messageElement);
   }
+}
+
+// Define a function to broadcast a message to all other users
+function broadcastMessage() {
+  // Get the latest message from the messages array
+  var message = messages[messages.length - 1];
+
+  // Send the message to all other users
+  // (This code will need to be implemented depending on how you are implementing the chatroom)
 }
 
 // Define a function to refresh the chatroom
