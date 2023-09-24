@@ -10,7 +10,7 @@
 <form action="#">
  <input type="text" id="username" placeholder="Enter your username">
  <input type="text" id="message" placeholder="Enter your message">
- <button type="submit" onclick="sendMessage()">Send</button>
+ <button type="submit" onclick="sendMessage(username)">Send</button>
 </form>
 
 <ul id="messages">
@@ -22,37 +22,39 @@ var messages = [];
 var username = '';
 var otherMessages = [];
 
-function sendMessage() {
+function sendMessage(username) {
  var message = document.getElementById('message').value;
  messages.push(username + ': ' + message);
 
- // Update the chatroom with the new message
+ // Clear the messagesList element before adding the new messages to it
  var messagesList = document.getElementById('messages');
  messagesList.innerHTML = '';
+
+ // Add the new message to the messagesList element
  for (var i = 0; i < messages.length; i++) {
- var messageElement = document.createElement('li');
- messageElement.textContent = messages[i];
- messagesList.appendChild(messageElement);
+  var messageElement = document.createElement('li');
+  messageElement.textContent = messages[i];
+  messagesList.appendChild(messageElement);
  }
 
  // Add the message to the otherMessages array so that other people can see it
  otherMessages.push({
-    username: username,
-    message: message
-  });
+  username: username,
+  message: message
+ });
 
  // Call the displayOtherMessages() function to update the chatroom with the latest messages
-  displayOtherMessages();
+ displayOtherMessages();
 }
 
 // Add code to display the messages from other people
 function displayOtherMessages() {
  var messagesList = document.getElementById('messages');
  for (var i = 0; i < otherMessages.length; i++) {
- var messageElement = document.createElement('li');
- // Add the username to the beginning of the message
- messageElement.textContent = otherMessages[i].username + ': ' + otherMessages[i].message;
- messagesList.appendChild(messageElement);
+  var messageElement = document.createElement('li');
+  // Add the username to the beginning of the message
+  messageElement.textContent = otherMessages[i].username + ': ' + otherMessages[i].message;
+  messagesList.appendChild(messageElement);
  }
 }
 
