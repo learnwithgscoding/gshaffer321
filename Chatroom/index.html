@@ -3,6 +3,22 @@
 <head>
 <title>Chatroom</title>
 <link rel="stylesheet" href="chat.css">
+  // Get the chat window element.
+const chatWindow = document.getElementById('chat-window');
+
+// Create a function to display a chat message.
+function displayChatMessage(message) {
+  const chatMessageElement = document.createElement('div');
+  chatMessageElement.textContent = message;
+  chatWindow.appendChild(chatMessageElement);
+}
+
+// Add a listener to the send button to send the message to the chat window.
+document.getElementById('send-button').addEventListener('click', () => {
+  const message = document.getElementById('message-input').value;
+  displayChatMessage(message);
+});
+
 </head>
 <body>
 
