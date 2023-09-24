@@ -2,33 +2,32 @@
 <html>
 <head>
 <title>Chatroom</title>
-<link rel="stylesheet" href="chat.css">
-  // Get the chat window element.
-const chatWindow = document.getElementById('chat-window');
-
-// Create a function to display a chat message.
-function displayChatMessage(message) {
-  const chatMessageElement = document.createElement('div');
-  chatMessageElement.textContent = message;
-  chatWindow.appendChild(chatMessageElement);
-}
-
-// Add a listener to the send button to send the message to the chat window.
-document.getElementById('send-button').addEventListener('click', () => {
-  const message = document.getElementById('message-input').value;
-  displayChatMessage(message);
-});
-
 </head>
 <body>
-
+<div id="chatroom">
 <h1>Chatroom</h1>
-
-<div id="chat-window">
+<ul id="messages">
+</ul>
+<input type="text" id="message" />
+<button onclick="sendMessage()">Send</button>
 </div>
 
-<input type="text" id="message-input">
-<button type="button" id="send-button">Send</button>
+<script>
+var messages = [];
 
+function sendMessage() {
+  var message = document.getElementById('message').value;
+  messages.push(message);
+
+  // Update the chatroom with the new message
+  var messagesList = document.getElementById('messages');
+  messagesList.innerHTML = '';
+  for (var i = 0; i < messages.length; i++) {
+    var messageElement = document.createElement('li');
+    messageElement.textContent = messages[i];
+    messagesList.appendChild(messageElement);
+  }
+}
+</script>
 </body>
 </html>
