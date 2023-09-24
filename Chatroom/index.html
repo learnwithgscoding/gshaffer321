@@ -6,67 +6,51 @@
 <body>
 <div id="chatroom">
 <h1>Chatroom</h1>
-<link rel="stylesheet" href="chat.css">
-<form action="#">
- <input type="text" id="username" placeholder="Enter your username">
- <input type="text" id="message" placeholder="Enter your message">
- <button type="submit" onclick="sendMessage(username)">Send</button>
-</form>
-
+<input type="text" id="username" placeholder="Enter your username">
+<input type="text" id="message" placeholder="Enter your message">
+<button type="submit" onclick="sendMessage()">Send</button>
 <ul id="messages">
 </ul>
 </div>
 
 <script>
+// Create an empty array to store the messages
 var messages = [];
-var username = '';
-var otherMessages = [];
 
-function sendMessage(username) {
- var message = document.getElementById('message').value;
- messages.push(username + ': ' + message);
+// Define a function to send a message
+function sendMessage() {
+  // Get the username and message from the input fields
+  var username = document.getElementById('username').value;
+  var message = document.getElementById('message').value;
 
- // Clear the messagesList element before adding the new messages to it
- var messagesList = document.getElementById('messages');
- messagesList.innerHTML = '';
+  // Add the message to the messages array
+  messages.push(username + ': ' + message);
 
- // Add the new message to the messagesList element
- for (var i = 0; i < messages.length; i++) {
-  var messageElement = document.createElement('li');
-  messageElement.textContent = messages[i];
-  messagesList.appendChild(messageElement);
- }
+  // Clear the message input field
+  document.getElementById('message').value = '';
 
- // Add the message to the otherMessages array so that other people can see it
- otherMessages.push({
-  username: username,
-  message: message
- });
-
- // Call the displayOtherMessages() function to update the chatroom with the latest messages
- displayOtherMessages();
+  // Update the chatroom with the new message
+  updateChatroom();
 }
 
-// Add code to display the messages from other people
-function displayOtherMessages() {
- var messagesList = document.getElementById('messages');
- for (var i = 0; i < otherMessages.length; i++) {
-  var messageElement = document.createElement('li');
-  // Add the username to the beginning of the message
-  messageElement.textContent = otherMessages[i].username + ': ' + otherMessages[i].message;
-  messagesList.appendChild(messageElement);
- }
+// Define a function to update the chatroom
+function updateChatroom() {
+  // Get the messages list element
+  var messagesList = document.getElementById('messages');
+
+  // Clear the messages list element
+  messagesList.innerHTML = '';
+
+  // Add each message in the messages array to the messages list element
+  for (var i = 0; i < messages.length; i++) {
+    var messageElement = document.createElement('li');
+    messageElement.textContent = messages[i];
+    messagesList.appendChild(messageElement);
+  }
 }
 
-// Refresh the chatroom every 1 second
-setInterval(function() {
- displayOtherMessages();
-}, 1000);
-
-// Call the displayOtherMessages() function when the chatroom page is loaded
-window.onload = function() {
- displayOtherMessages();
-};
+// Update the chatroom when the page loads
+updateChatroom();
 </script>
 </body>
 </html>
