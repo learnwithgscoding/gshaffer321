@@ -19,36 +19,45 @@ const firebaseConfig = {
   measurementId: "G-B1Q51TBM2R"
 };
 
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-    // Get the auth object
-    var auth = firebase.auth();
+  // Get the auth object
+  var auth = firebase.auth();
+
+  // Create a new user account with Firebase Auth
+  function signup() {
+    // Get the email and password from the signup form
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    // Check if the email or password is less than 6 characters
+    if (email.length < 6 || password.length < 6) {
+      // Display an alert message
+      alert("Error: Password is less than 6 characters. Make a better password greater than 6 characters.");
+
+      // Return to prevent the form from submitting
+      return;
+    }
 
     // Create a new user account with Firebase Auth
-    function signup() {
-      // Get the email and password from the signup form
-      var email = document.getElementById('email').value;
-      var password = document.getElementById('password').value;
-
-      // Create a new user account with Firebase Auth
-      auth.createUserWithEmailAndPassword(email, password).then(function(user) {
-        // User is signed up
-        alert("Signup successful!");
-      }).catch(function(error) {
-        // Handle error
-        if (error.code === "auth/email-already-in-use") {
-          alert("Email Already Exists!");
-        } else {
-          alert("Signup failed. Please check your email and password.");
-        }
-      });
-    }
-  </script>
+    auth.createUserWithEmailAndPassword(email, password).then(function(user) {
+      // User is signed up
+      alert("Signup successful!");
+    }).catch(function(error) {
+      // Handle error
+      if (error.code === "auth/email-already-in-use") {
+        alert("Email Already Exists!");
+      } else {
+        alert("Signup failed. Please check your email and password.");
+      }
+    });
+  }
+ </script>
 </head>
 <body>
   <h1>Sign Up!</h1>
-  
+  
 
   <input type="email" id="email" placeholder="Email">
   <input type="password" id="password" placeholder="Password">
