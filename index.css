@@ -1,27 +1,46 @@
-/* Make the button blue */
 .button {
-  background-color: blue;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
+ background-color: blue;
+ color: white;
+ padding: 10px 20px;
+ border-radius: 5px;
+ cursor: pointer;
 }
 
 /* Make the button purple when hovered */
 .button:hover {
-  background-color: purple;
+ background-color: purple;
 }
 
 /* Space the text and the button out */
 .button-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
 }
 
 .button-container .button {
-  margin-left: 10px;
+ margin-left: 10px;
+}/* Make the button blue */
+.button {
+ background-color: blue;
+ color: white;
+ padding: 10px 20px;
+ border-radius: 5px;
+ cursor: pointer;
+}
+
+/* Make the button purple when hovered */
+.button:hover {
+ background-color: purple;
+}
+
+/* Space the text and the button out */
+.button-container {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+.button-container .button {
+ margin-left: 10px;
 }
