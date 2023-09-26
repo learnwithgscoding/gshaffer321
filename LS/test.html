@@ -1,0 +1,14 @@
+<title>LoginTest | Tester Tools</title>
+<script>
+  // Get the auth object
+  var auth = firebase.auth();
+
+  // Check if the user is logged in
+  if (auth.currentUser) {
+    // User is logged in
+    alert("User is logged in!");
+  } else {
+    // User is not logged in
+    alert("User is not logged in!");
+  }
+</script>
