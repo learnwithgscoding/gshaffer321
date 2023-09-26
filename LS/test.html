@@ -17,6 +17,9 @@
       measurementId: "G-B1Q51TBM2R"
     });
 
+    // Get the auth object
+    var auth = firebase.auth();
+
     // Check if the user is logged in
     auth.onAuthStateChanged(function(user) {
       if (user) {
