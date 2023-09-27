@@ -1,68 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Signup Page</title>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/init.js"></script>
+ <meta charset="utf-8">
+ <title>Signup Page</title>
+ <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/init.js"></script>
 
-  <script>
+ <script>
 const firebaseConfig = {
-  apiKey: "AIzaSyCi2nCSIgG06MN5WoVPiCf0uWQWXh6KPJw",
-  authDomain: "signup-7856c.firebaseapp.com",
-  databaseURL: "https://signup-7856c-default-rtdb.firebaseio.com",
-  projectId: "signup-7856c",
-  storageBucket: "signup-7856c.appspot.com",
-  messagingSenderId: "257328329466",
-  appId: "1:257328329466:web:6b8b340084ad8deec14f43",
-  measurementId: "G-B1Q51TBM2R"
+ apiKey: "AIzaSyCi2nCSIgG06MN5WoVPiCf0uWQWXh6KPJw",
+ authDomain: "signup-7856c.firebaseapp.com",
+ databaseURL: "https://signup-7856c-default-rtdb.firebaseio.com",
+ projectId: "signup-7856c",
+ storageBucket: "signup-7856c.appspot.com",
+ messagingSenderId: "257328329466",
+ appId: "1:257328329466:web:6b8b340084ad8deec14f43",
+ measurementId: "G-B1Q51TBM2R"
 };
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+ // Initialize Firebase
+ firebase.initializeApp(firebaseConfig);
 
-  // Get the auth object
-  var auth = firebase.auth();
+ // Get the auth object
+ var auth = firebase.auth();
 
-  // Create a new user account with Firebase Auth
-  function signup() {
-    // Get the email and password from the signup form
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
+ // Create a new user account with Firebase Auth
+ function signup() {
+  // Get the email and password from the signup form
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
 
-    // Check if the email or password is less than 6 characters
-    if (password.length < 6) {
-      // Display an alert message
-      alert("Error: Password is less than 6 characters. Make a better password greater than 6 characters.");
+  // Check if the email or password is less than 6 characters
+  if (password.length < 6) {
+   // Display an alert message
+   alert("Error: Password is less than 6 characters. Make a better password greater than 6 characters.");
 
-      // Return to prevent the form from submitting
-      return;
-    }
+   // Return to prevent the form from submitting
+   return;
+  }
 
-    // Create a new user account with Firebase Auth
-    auth.createUserWithEmailAndPassword(email, password).then(function(user) {
-      // User is signed up
-      alert("Signup successful!");
-    }).catch(function(error) {
+  // Send the email and password to Cyclic
+  fetch('https://[YOUR_CYCLIC_APP_URL]/api/auth/signup', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email,
+      password
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    // If the signup is successful, submit the form to Firebase Auth
+    if (data.success) {
+      auth.createUserWithEmailAndPassword(email, password).then(function(user) {
+        // User is signed up
+        alert("Signup successful!");
+      }).catch(function(error) {
+        // Handle error
+        if (error.code === "auth/email-already-in-use") {
+          alert("Email Already Exists!");
+        } else {
+          alert("Signup failed. Please check your email and password.");
+        }
+      });
+    } else {
       // Handle error
-      if (error.code === "auth/email-already-in-use") {
-        alert("Email Already Exists!");
-      } else {
-        alert("Signup failed. Please check your email and password.");
-      }
-    });
-  }
+      alert("Signup failed. Please try again.");
+    }
+  });
+ }
  </script>
 </head>
 <body>
-  <h1>Sign Up!</h1>
+ <h1>Sign Up!</h1>
   
 
-  <input type="email" id="email" placeholder="Email">
-  <input type="password" id="password" placeholder="Password">
+ <input type="email" id="email" placeholder="Email">
+ <input type="password" id="password" placeholder="Password">
 
-  <button type="button" onclick="signup()" class="signup-button">Sign Up!</button>
+ <button type="button" onclick="signup()" class="signup-button">Sign Up!</button>
 </body>
 </html>
-<link rel="stylesheet" href="index.css">
