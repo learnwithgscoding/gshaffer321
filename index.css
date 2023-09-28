@@ -22,8 +22,8 @@
  margin-left: 10px;
 }/* Make the button blue */
 .button {
- background-color: blue;
- color: white;
+ background-color: black;
+ color: blue;
  padding: 10px 20px;
  border-radius: 5px;
  cursor: pointer;
