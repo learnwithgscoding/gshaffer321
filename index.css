@@ -23,7 +23,7 @@
 }/* Make the button blue */
 .button {
  background-color: black;
- color: blue;
+ color: white;
  padding: 10px 20px;
  border-radius: 5px;
  cursor: pointer;
@@ -46,5 +46,5 @@
 }
 
 body {
-  background-color: #8b0000;
+  background-color: blue;
 }
