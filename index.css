@@ -1,5 +1,5 @@
 .button {
- background-color: blue;
+ background-color: black;
  color: white;
  padding: 10px 20px;
  border-radius: 5px;
@@ -8,7 +8,7 @@
 
 /* Make the button purple when hovered */
 .button:hover {
- background-color: purple;
+ background-color: white;
 }
 
 /* Space the text and the button out */
@@ -31,7 +31,7 @@
 
 /* Make the button purple when hovered */
 .button:hover {
- background-color: purple;
+ background-color: white;
 }
 
 /* Space the text and the button out */
